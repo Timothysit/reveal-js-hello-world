@@ -1,11 +1,19 @@
----
-title: First presentation test
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: white
-revealOptions:
-    transition: 'fade'
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>First presentation test</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
 
 
 # Slide 1 
@@ -13,7 +21,7 @@ revealOptions:
 Content of slide 1.
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 
 # Slide 2 
@@ -21,7 +29,7 @@ Content of slide 1.
 content of slide 2
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Some mathematics
 
@@ -44,20 +52,20 @@ $$
 $$
 
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Including a video 
 
 
 <iframe frameborder="0" width="100%" height="500pt" src="https://www.youtube.com/embed/Do-wDPoC6GM"></iframe>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Including an interactive plot 
 
 <iframe frameborder="0" width="600pt" height="600pt" src="https://timothysit.github.io/reveal-js-hello-world/figures/linked_selection_subsets.html"></iframe>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Lists 
 
@@ -85,7 +93,7 @@ $$
 
 </div>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Second attempt at two columns 
 
@@ -103,7 +111,7 @@ $$
   </div>
 </section>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Third attempt at two columns 
 
@@ -126,7 +134,7 @@ $$
     </div>
 </section>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Embedding raw html 
 
@@ -137,7 +145,7 @@ $$
         <div>
             A div with some text and a [link](http://hakim.se).
         </div>
-    </script>
+    __SCRIPT_END__
 </section>
 </iframe>
 
@@ -164,8 +172,59 @@ $$
 }
 </style>
 
-<!--s-->
+</script></section><section  data-markdown><script type="text/template">
 
 # Good references
 
 - [reveal-md  with custom css at the end](https://medium.com/@mandieq/beautiful-presentations-from-markdown-who-knew-it-could-be-so-easy-d279aa7f787a)
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"fade"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
